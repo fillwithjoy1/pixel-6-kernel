@@ -41,20 +41,18 @@ jobs:
           repo sync -c --no-tags
 
       - name: Update vendor ramdisk (through curl)
-        if: false
+        if: true
         run: |
-          cd ..
           curl -O "https://dl.google.com/dl/android/aosp/raven-ap1a.240505.004-factory-9d783215.zip"
           unzip raven-ap1a.240505.004-factory-9d783215.zip
           cd raven-ap1a.240505.004
           unzip image-raven-ap1a.240505.004.zip vendor_boot.img
           mv vendor_boot.img ..
-          cd ..
-          cd android-kernel/tools/mkbootimg
+          android-kernel/tools/mkbootimg/unpack_bootimg.py --boot_img vendor_boot.img \ --out vendor_boot_out
           cp vendor_boot_out/vendor-ramdisk-by-name/ramdisk_ \ android-kernel/prebuilts/boot-artifacts/ramdisks/vendor_ramdisk-oriole.img
 
       - name: Update vendor ramdisk (locally)
-        if: true
+        if: false
         run: |
           cp vendor_ramdisk00 android-kernel/prebuilts/boot-artifacts/ramdisks/vendor_ramdisk-oriole.img
 
@@ -72,8 +70,14 @@ jobs:
           cp android-kernel/slider/dist/vendor_dlkm.img to-upload
           zip the-images to-upload -r
 
-      - name: Upload images
+      - name: Upload images.zip
         uses: actions/upload-artifact@v4.3.3
         with:
-          name: Images
+          name: the-images
           path: the-images.zip
+
+      - name: Upload files
+        uses: actions/upload-artifact@v4.3.3
+        with:
+          name: files
+          path: to-upload/
