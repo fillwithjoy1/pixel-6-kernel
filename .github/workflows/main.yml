@@ -20,18 +20,16 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
 
-      - name: Update packages
+      - name: Install packages
         run: |
           sudo apt-get update
           sudo apt-get upgrade
-
-      - name: Install Repo
-        run: |
-          sudo apt-get install repo
+          sudo apt-get install repo zip
 
       # Runs a set of commands using the runners shell
       - name: Sync kernel repo
         run: |
+          zip android-kernel
           mkdir android-kernel
           cd android-kernel
           repo init -u https://android.googlesource.com/kernel/manifest -b android14-gs-pixel-6.1
@@ -49,5 +47,19 @@ jobs:
           unzip image-raven-ap2a.240505.004.zip vendor_boot.img
           mv vendor_boot.img ..
           android-kernel/tools/mkbootimg/unpack_bootimg.py --boot_img vendor_boot.img \ --out vendor_boot_out
-          curl "https://dl.google.com/dl/android/aosp/raven-ap1a.240505.004-factory-9d783215.zip" -O
+          cp vendor_boot_out/vendor-ramdisk-by-name/ramdisk_ \ android-kernel/prebuilts/boot-artifacts/ramdisks/vendor_ramdisk-oriole.img
+
+      - name: Compile Kernel
+        run: |
+          cd android-kernel
+          tools/bazel run --config=fast --config=stamp //private/google-modules/soc/gs:slider_dist
+          cd out
           ls
+
+      - name: Pack images to upload
+        run: |
+          mkdir to-upload
+          cp slider/dist/boot.img to-upload
+          cp slider/dist/dtbo.img to-upload
+          cp slider/dist/vendor_boot.img to-upload
+          cp slider/dist/vendor_dlkm.img to-upload
