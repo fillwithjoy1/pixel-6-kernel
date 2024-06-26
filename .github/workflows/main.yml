@@ -64,13 +64,12 @@ jobs:
           tools/bazel run --config=fast --config=stamp //private/google-modules/soc/gs:slider_dist
           cd out
           ls
-
-      - name: Debug
-        run: |
-          cd slider
-          ls
-          cd dist
-          ls
+          mkdir to-upload
+          cp slider/dist/boot.img to-upload
+          cp slider/dist/dtbo.img to-upload
+          cp slider/dist/vendor_boot.img to-upload
+          cp slider/dist/vendor_dlkm.img to-upload
+          zip the-images to-upload -r
 
       - name: Pack images to upload
         if: false
