@@ -29,8 +29,9 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Sync kernel repo
         run: |
-          zip android android-kernel
           mkdir android-kernel
+          zip android android-kernel
+          ls
           cd android-kernel
           repo init -u https://android.googlesource.com/kernel/manifest -b android14-gs-pixel-6.1
           repo sync -c --no-tags
