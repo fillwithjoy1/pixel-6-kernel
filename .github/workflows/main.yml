@@ -54,8 +54,10 @@ jobs:
           cp vendor_boot_out/vendor-ramdisk-by-name/ramdisk_ \ android-kernel/prebuilts/boot-artifacts/ramdisks/vendor_ramdisk-oriole.img
 
       - name: Update vendor ramdisk (locally)
+        if: true
         run: |
           cd ..
+          pwd
           ls
           cp vendor_ramdisk00 android-kernel/prebuilts/boot-artifacts/ramdisks/vendor_ramdisk-oriole.img
 
