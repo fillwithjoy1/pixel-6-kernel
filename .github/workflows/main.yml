@@ -43,7 +43,9 @@ jobs:
           cd ..
           curl -O "https://dl.google.com/dl/android/aosp/raven-ap1a.240505.004-factory-9d783215.zip"
           unzip raven-ap1a.240505.004-factory-9d783215.zip
+          ls
           cd raven-ap1a.240505.004
+          ls
           unzip image-raven-ap2a.240505.004.zip vendor_boot.img
           mv vendor_boot.img ..
           android-kernel/tools/mkbootimg/unpack_bootimg.py --boot_img vendor_boot.img \ --out vendor_boot_out
