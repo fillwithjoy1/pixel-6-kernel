@@ -23,7 +23,6 @@ jobs:
         uses: actions/checkout@v4.1.7
         
       - name: Install packages
-        if: false
         run: |
           sudo apt-get update
           sudo apt-get upgrade
@@ -41,7 +40,7 @@ jobs:
           repo init -u https://android.googlesource.com/kernel/manifest -b android14-gs-pixel-6.1
           repo sync -c --no-tags
 
-      - name: Update vendor ramdisk
+      - name: Update vendor ramdisk (through curl)
         if: false
         run: |
           cd ..
@@ -53,6 +52,11 @@ jobs:
           cd ..
           cd android-kernel/tools/mkbootimg
           cp vendor_boot_out/vendor-ramdisk-by-name/ramdisk_ \ android-kernel/prebuilts/boot-artifacts/ramdisks/vendor_ramdisk-oriole.img
+
+      - name: Update vendor ramdisk (locally)
+        run: |
+          cd ..
+          cp vendor_ramdisk00 android-kernel/prebuilts/boot-artifacts/ramdisks/vendor_ramdisk-oriole.img
 
       - name: Compile Kernel
         run: |
