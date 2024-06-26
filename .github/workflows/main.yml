@@ -37,3 +37,13 @@ jobs:
           repo init -u https://android.googlesource.com/kernel/manifest -b android14-gs-pixel-6.1
           repo sync -c --no-tags
 
+      - name: Download Factory Images (Update vendor ramdisk)
+        run: |
+          pwd
+          cd ..
+          pwd
+          curl -o https://dl.google.com/dl/android/aosp/raven-ap1a.240505.004-factory-9d783215.zip
+          unzip raven-ap1a.240505.004-factory-9d783215.zip
+          cd raven-ap1a.240505.004
+          ls
+
