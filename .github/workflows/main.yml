@@ -80,3 +80,9 @@ jobs:
           cp slider/dist/vendor_boot.img to-upload
           cp slider/dist/vendor_dlkm.img to-upload
           zip the-images to-upload -r
+
+      - name: Upload images
+        uses: actions/upload-artifact@v4.3.3
+        with:
+          name: Images
+          path: to-upload/
