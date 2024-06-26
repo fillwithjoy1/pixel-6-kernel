@@ -36,7 +36,6 @@ jobs:
 
       - name: Download Factory Images (Update vendor ramdisk)
         run: |
-          cd ..
           curl -O "https://dl.google.com/dl/android/aosp/raven-ap1a.240505.004-factory-9d783215.zip"
 
       - name: Update vendor ramdisk
