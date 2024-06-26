@@ -62,24 +62,14 @@ jobs:
         run: |
           cd android-kernel
           tools/bazel run --config=fast --config=stamp //private/google-modules/soc/gs:slider_dist
-          cd out
-          ls
-          mkdir to-upload
-          cp slider/dist/boot.img to-upload
-          cp slider/dist/dtbo.img to-upload
-          cp slider/dist/vendor_boot.img to-upload
-          cp slider/dist/vendor_dlkm.img to-upload
-          ls
-          zip the-images to-upload -r
 
       - name: Pack images to upload
-        if: false
         run: |
           mkdir to-upload
-          cp slider/dist/boot.img to-upload
-          cp slider/dist/dtbo.img to-upload
-          cp slider/dist/vendor_boot.img to-upload
-          cp slider/dist/vendor_dlkm.img to-upload
+          cp android-kernel/slider/dist/boot.img to-upload
+          cp android-kernel/slider/dist/dtbo.img to-upload
+          cp android-kernel/slider/dist/vendor_boot.img to-upload
+          cp android-kernel/slider/dist/vendor_dlkm.img to-upload
           zip the-images to-upload -r
 
       - name: Upload images
