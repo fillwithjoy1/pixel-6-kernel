@@ -29,7 +29,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Sync kernel repo
         run: |
-          zip android-kernel
+          zip android android-kernel
           mkdir android-kernel
           cd android-kernel
           repo init -u https://android.googlesource.com/kernel/manifest -b android14-gs-pixel-6.1
@@ -63,3 +63,4 @@ jobs:
           cp slider/dist/dtbo.img to-upload
           cp slider/dist/vendor_boot.img to-upload
           cp slider/dist/vendor_dlkm.img to-upload
+          zip the-images to-upload -r
