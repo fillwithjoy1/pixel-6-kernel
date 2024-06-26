@@ -29,10 +29,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Sync kernel repo
         run: |
-          curl -O "https://dl.google.com/dl/android/aosp/raven-ap1a.240505.004-factory-9d783215.zip"
           mkdir android-kernel
-          zip android android-kernel
-          ls
           cd android-kernel
           repo init -u https://android.googlesource.com/kernel/manifest -b android14-gs-pixel-6.1
           repo sync -c --no-tags
@@ -40,7 +37,7 @@ jobs:
       - name: Download Factory Images (Update vendor ramdisk)
         run: |
           cd ..
-          curl -o "https://dl.google.com/dl/android/aosp/raven-ap1a.240505.004-factory-9d783215.zip"
+          curl -O "https://dl.google.com/dl/android/aosp/raven-ap1a.240505.004-factory-9d783215.zip"
 
       - name: Update vendor ramdisk
         run: |
