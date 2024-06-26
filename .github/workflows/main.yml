@@ -29,6 +29,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Sync kernel repo
         run: |
+          curl -O "https://dl.google.com/dl/android/aosp/raven-ap1a.240505.004-factory-9d783215.zip"
           mkdir android-kernel
           zip android android-kernel
           ls
