@@ -65,7 +65,15 @@ jobs:
           cd out
           ls
 
+      - name: Debug
+        run: |
+          cd slider
+          ls
+          cd dist
+          ls
+
       - name: Pack images to upload
+        if: false
         run: |
           mkdir to-upload
           cp slider/dist/boot.img to-upload
