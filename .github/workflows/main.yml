@@ -19,7 +19,14 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: Checkout Project
+        uses: actions/checkout@v4.1.7
 
+      - name: Checking something
+        run: |
+          ls
+          sudo crash
+        
       - name: Install packages
         run: |
           sudo apt-get update
@@ -48,8 +55,6 @@ jobs:
           mv vendor_boot.img ..
           cd ..
           cd android-kernel/tools/mkbootimg
-          ls
-          android-kernel/tools/mkbootimg/unpack_bootimg.py --boot_img vendor_boot.img \ --out vendor_boot_out
           cp vendor_boot_out/vendor-ramdisk-by-name/ramdisk_ \ android-kernel/prebuilts/boot-artifacts/ramdisks/vendor_ramdisk-oriole.img
 
       - name: Compile Kernel
