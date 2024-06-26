@@ -50,7 +50,7 @@ jobs:
           cd raven-ap1a.240505.004
           unzip image-raven-ap2a.240505.004.zip vendor_boot.img
           mv vendor_boot.img ..
-          tools/mkbootimg/unpack_bootimg.py --boot_img vendor_boot.img \ --out vendor_boot_out
+          android-kernel/tools/mkbootimg/unpack_bootimg.py --boot_img vendor_boot.img \ --out vendor_boot_out
           cp vendor_boot_out/vendor-ramdisk-by-name/ramdisk_ \ prebuilts/boot-artifacts/ramdisks/vendor_ramdisk-oriole.img
 
       - name: Compile Kernel
