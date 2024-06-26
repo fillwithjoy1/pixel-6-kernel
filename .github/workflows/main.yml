@@ -41,6 +41,7 @@ jobs:
 
       - name: Update vendor ramdisk
         run: |
+          ls
           unzip raven-ap1a.240505.004-factory-9d783215.zip
           cd raven-ap1a.240505.004
           unzip image-raven-ap2a.240505.004.zip vendor_boot.img
