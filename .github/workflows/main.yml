@@ -21,11 +21,6 @@ jobs:
     steps:
       - name: Checkout Project
         uses: actions/checkout@v4.1.7
-
-      - name: Checking something
-        run: |
-          ls
-          sudo crash
         
       - name: Install packages
         run: |
@@ -46,6 +41,7 @@ jobs:
           repo sync -c --no-tags
 
       - name: Update vendor ramdisk
+        if: false
         run: |
           cd ..
           curl -O "https://dl.google.com/dl/android/aosp/raven-ap1a.240505.004-factory-9d783215.zip"
