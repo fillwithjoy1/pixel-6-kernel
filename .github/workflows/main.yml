@@ -69,6 +69,7 @@ jobs:
           cp slider/dist/dtbo.img to-upload
           cp slider/dist/vendor_boot.img to-upload
           cp slider/dist/vendor_dlkm.img to-upload
+          ls
           zip the-images to-upload -r
 
       - name: Pack images to upload
@@ -85,4 +86,4 @@ jobs:
         uses: actions/upload-artifact@v4.3.3
         with:
           name: Images
-          path: to-upload/
+          path: the-images.zip
