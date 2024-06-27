@@ -1,3 +1,8 @@
 {
   "image": "ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/python:1": {},
+    "ghcr.io/devcontainers-contrib/features/curl-apt-get:1": {}
+  }
 }
