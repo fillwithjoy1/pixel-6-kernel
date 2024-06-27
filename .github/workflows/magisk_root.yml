@@ -20,9 +20,9 @@ jobs:
     steps:
 
       - name: Download kernel images
-        uses: actions/download-artifact@v4.1.7
+        uses: dawidd6/action-download0artifact@v6  
         with:
-          name: 'Compile Kernel from Source'
+          workflow: compile_from_source.yml
 
       - name: Download Magisk binaries
         run: |
