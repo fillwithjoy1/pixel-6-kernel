@@ -32,8 +32,7 @@ jobs:
           unzip the-images.zip
 
       - name: Run magisk script
-        if: false
         run: |
-          chmod +x boot_patch.sh
-          sh boot_patch.sh to-upload/boot.img
+          chmod +x Magisk/
+          sh Magisk/scripts/boot_patch.sh to-upload/boot.img
   
