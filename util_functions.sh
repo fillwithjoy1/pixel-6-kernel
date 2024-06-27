@@ -49,13 +49,8 @@ grep_prop() {
 }
 
 grep_get_prop() {
-  local result=$(grep_prop $@)
-  if [ -z "$result" ]; then
-    # Fallback to getprop
-    getprop "$1"
-  else
-    echo $result
-  fi
+  adb shell "$1"
+  echo "GETPROP:: $1"
 }
 
 getvar() {
