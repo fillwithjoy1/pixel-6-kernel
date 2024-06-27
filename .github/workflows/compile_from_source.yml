@@ -26,7 +26,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get upgrade
-          sudo apt-get install repo zip
+          sudo apt-get install repo
 
       - name: Free up space
         run: | 
@@ -64,14 +64,12 @@ jobs:
           tools/bazel run --config=fast --config=stamp //private/google-modules/soc/gs:slider_dist
 
       - name: Pack images to upload
-        if: false
         run: |
           mkdir to-upload
           cp android-kernel/out/slider/dist/boot.img to-upload
           cp android-kernel/out/slider/dist/dtbo.img to-upload
           cp android-kernel/out/slider/dist/vendor_boot.img to-upload
           cp android-kernel/out/slider/dist/vendor_dlkm.img to-upload
-          zip the-images to-upload -r
 
       - name: Upload files
         uses: actions/upload-artifact@v4.3.3
