@@ -49,7 +49,11 @@ jobs:
       - name: Fetch other files needed 
         run: |
           cp util_functions.sh Magic
+          cp the-images/boot.img Magic
+
+      - name: Run the magic
+        run: |
           chmod +x Magic/*
-          cd the-images
-          ls
+          cd Magic
+          sh boot_patch.sh boot.img
   
