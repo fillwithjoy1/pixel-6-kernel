@@ -35,6 +35,6 @@ jobs:
 
       - name: Unzip folder
         run: |
-          ls
           cd the-images
+          ls
   
