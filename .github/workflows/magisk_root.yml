@@ -32,9 +32,9 @@ jobs:
           mkdir Magisk
           cd Magisk
           curl -L https://github.com/topjohnwu/Magisk/releases/download/v27.0/Magisk-v27.0.apk > Magisk.apk
+          unzip Magisk.apk
 
-      - name: Unzip folder
+      - name: Fetch relevant files from Magisk
         run: |
-          cd the-images
-          ls
+          echo "test"
   
