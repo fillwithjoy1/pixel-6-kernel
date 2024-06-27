@@ -64,6 +64,7 @@ jobs:
           tools/bazel run --config=fast --config=stamp //private/google-modules/soc/gs:slider_dist
 
       - name: Pack images to upload
+        if: false
         run: |
           mkdir to-upload
           cp android-kernel/out/slider/dist/boot.img to-upload
@@ -72,14 +73,8 @@ jobs:
           cp android-kernel/out/slider/dist/vendor_dlkm.img to-upload
           zip the-images to-upload -r
 
-      - name: Upload images.zip
-        uses: actions/upload-artifact@v4.3.3
-        with:
-          name: the-images
-          path: the-images.zip
-
       - name: Upload files
         uses: actions/upload-artifact@v4.3.3
         with:
-          name: files
+          name: the-images
           path: to-upload/
