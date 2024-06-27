@@ -36,5 +36,5 @@ jobs:
 
       - name: Fetch relevant files from Magisk
         run: |
-          echo "test"
+          ls
   
