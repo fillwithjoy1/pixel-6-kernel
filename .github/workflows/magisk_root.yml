@@ -23,27 +23,16 @@ jobs:
         with:
           name: 'Compile Kernel from Source'
 
-      - name: Download Magisk repo
+      - name: Download Magisk-patch repo
         run: |
-          git clone https://github.com/topjohnwu/Magisk
+          https://github.com/entr0pia/magisk_patch
 
       - name: Unzip folder
         run: |
           unzip the-images.zip
 
-      - name: Give executable
+      - name: Run the magic script
         run: |
           chmod +x Magisk/*
           sh Magisk/scripts/boot_patch.sh to-upload/boot.img
-
-
-      - name: Mock getprop command
-        run: |
-          echo '#!/bin/bash' > /usr/local/bin/getprop
-          echo 'echo "mocked"' >> /usr/local/bin/getprop
-          chmod +x /usr/local/bin/getprop
-
-      - name: Patch boot image with Magisk
-        run: |
-          bash Magisk/scripts/boot_patch.sh to-upload/boot.img
   
