@@ -31,8 +31,19 @@ jobs:
         run: |
           unzip the-images.zip
 
-      - name: Run magisk script
+      - name: Give executable
         run: |
-          chmod +x Magisk/
+          chmod +x Magisk/*
           sh Magisk/scripts/boot_patch.sh to-upload/boot.img
+
+
+      - name: Mock getprop command
+        run: |
+          echo '#!/bin/bash' > /usr/local/bin/getprop
+          echo 'echo "mocked"' >> /usr/local/bin/getprop
+          chmod +x /usr/local/bin/getprop
+
+      - name: Patch boot image with Magisk
+        run: |
+          bash Magisk/scripts/boot_patch.sh to-upload/boot.img
   
