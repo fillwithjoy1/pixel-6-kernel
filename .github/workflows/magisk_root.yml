@@ -4,6 +4,7 @@ name: Patch image with Magisk
 
 # Controls when the workflow will run
 on:
+  workflow_dispatch:
   workflow_run:
     workflows: ['Compile Kernel from Source']
     types: 
@@ -23,16 +24,14 @@ jobs:
         with:
           name: 'Compile Kernel from Source'
 
-      - name: Download Magisk-patch repo
+      - name: Download Magisk binaries
         run: |
-          https://github.com/entr0pia/magisk_patch
+          mkdir Magisk
+          cd Magisk
+          curl -L https://github.com/topjohnwu/Magisk/releases/download/v27.0/Magisk-v27.0.apk > Magisk.apk
 
       - name: Unzip folder
         run: |
           unzip the-images.zip
-
-      - name: Run the magic script
-        run: |
-          chmod +x Magisk/*
-          sh Magisk/scripts/boot_patch.sh to-upload/boot.img
+          echo "wait why is nothing working?"
   
