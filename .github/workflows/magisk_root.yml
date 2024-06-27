@@ -23,6 +23,16 @@ jobs:
         with:
           name: 'Compile Kernel from Source'
 
-      - name: Debug
+      - name: Download Magisk Script
         run: |
-          ls
+          curl https://github.com/topjohnwu/Magisk/blob/master/scripts/boot_patch.sh -O
+
+      - name: Unzip folder
+        run: |
+          unzip the-images.zip
+
+      - name: Run magisk script
+        run: |
+          chmod +x boot_patch.sh
+          sh boot_patch.sh to-upload/boot.img
+  
