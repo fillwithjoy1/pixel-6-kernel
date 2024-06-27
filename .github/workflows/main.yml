@@ -66,10 +66,10 @@ jobs:
       - name: Pack images to upload
         run: |
           mkdir to-upload
-          cp android-kernel/slider/dist/boot.img to-upload
-          cp android-kernel/slider/dist/dtbo.img to-upload
-          cp android-kernel/slider/dist/vendor_boot.img to-upload
-          cp android-kernel/slider/dist/vendor_dlkm.img to-upload
+          cp android-kernel/out/slider/dist/boot.img to-upload
+          cp android-kernel/out/slider/dist/dtbo.img to-upload
+          cp android-kernel/out/slider/dist/vendor_boot.img to-upload
+          cp android-kernel/out/slider/dist/vendor_dlkm.img to-upload
           zip the-images to-upload -r
 
       - name: Upload images.zip
