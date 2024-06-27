@@ -4,6 +4,9 @@ name: Patch image with Magisk
 
 # Controls when the workflow will run
 on:
+  push:
+    paths:
+      - '.github/workflows/magisk_root.yml'
   workflow_dispatch:
   workflow_run:
     workflows: ['Compile Kernel from Source']
@@ -19,19 +22,38 @@ jobs:
 
     steps:
 
-      - name: Download kernel images
-        uses: actions/download-artifact@v4.1.7
-        with:
-          name: 'Compile Kernel from Source'
+      - name: Checkout repo
+        uses: actions/checkout@v4.1.7
 
-      - name: Download Magisk binaries
+      - name: Download kernel images
+        uses: dawidd6/action-download-artifact@v6  
+        with:
+          workflow: compile_from_source.yml
+
+      - name: Download Magisk v27.0
         run: |
           mkdir Magisk
           cd Magisk
           curl -L https://github.com/topjohnwu/Magisk/releases/download/v27.0/Magisk-v27.0.apk > Magisk.apk
+          unzip Magisk.apk
 
-      - name: Unzip folder
+      - name: Fetch relevant files from Magisk
         run: |
-          unzip the-images.zip
-          echo "wait why is nothing working?"
+          mkdir Magic
+          cp Magisk/assets/boot_patch.sh Magic
+          cp Magisk/lib/x86_64/libmagiskboot.so Magic
+          cp Magisk/lib/armeabi-v7a/libmagisk32.so Magic
+          cp Magisk/lib/arm64-v8a/libmagisk64.so Magic
+          cp Magisk/lib/arm64-v8a/libmagiskinit.so Magic
+
+      - name: Fetch other files needed 
+        run: |
+          cp util_functions.sh Magic
+          cp the-images/boot.img Magic
+
+      - name: Run the magic
+        run: |
+          chmod +x Magic/*
+          cd Magic
+          sh boot_patch.sh boot.img
   
