@@ -20,7 +20,7 @@ jobs:
     steps:
 
       - name: Download kernel images
-        uses: dawidd6/action-download0artifact@v6  
+        uses: dawidd6/action-download-artifact@v6  
         with:
           workflow: compile_from_source.yml
 
