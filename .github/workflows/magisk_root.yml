@@ -23,9 +23,9 @@ jobs:
         with:
           name: 'Compile Kernel from Source'
 
-      - name: Download Magisk Script
+      - name: Download Magisk repo
         run: |
-          curl https://github.com/topjohnwu/Magisk/blob/master/scripts/boot_patch.sh -O
+          git clone https://github.com/topjohnwu/Magisk
 
       - name: Unzip folder
         run: |
