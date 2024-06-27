@@ -26,11 +26,7 @@
 ###################
 
 ui_print() {
-  if $BOOTMODE; then
-    echo "$1"
-  else
-    echo -e "ui_print $1\nui_print" >> /proc/self/fd/$OUTFD
-  fi
+  echo "$1"
 }
 
 toupper() {
