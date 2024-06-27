@@ -32,6 +32,6 @@ jobs:
 
       - name: Unzip folder
         run: |
+          ls
           unzip the-images.zip
-          echo "wait why is nothing working?"
   
