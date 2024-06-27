@@ -4,6 +4,8 @@ name: Patch image with Magisk
 
 # Controls when the workflow will run
 on:
+  push:
+  pull_request:
   workflow_dispatch:
   workflow_run:
     workflows: ['Compile Kernel from Source']
