@@ -22,12 +22,15 @@ jobs:
 
     steps:
 
+      - name: Checkout repo
+        uses: actions/checkout@v4.1.7
+
       - name: Download kernel images
         uses: dawidd6/action-download-artifact@v6  
         with:
           workflow: compile_from_source.yml
 
-      - name: Download Magisk binaries
+      - name: Download Magisk v27.0
         run: |
           mkdir Magisk
           cd Magisk
@@ -36,5 +39,17 @@ jobs:
 
       - name: Fetch relevant files from Magisk
         run: |
+          mkdir Magic
+          cp Magisk/assets/boot_patch.sh Magic
+          cp Magisk/lib/x86_64/libmagiskboot.so Magic
+          cp Magisk/lib/armeabi-v7a/libmagisk32.so Magic
+          cp Magisk/lib/arm64-v8a/libmagisk64.so Magic
+          cp Magisk/lib/arm64-v8a/libmagiskinit.so Magic
+
+      - name: Fetch other files needed 
+        run: |
+          cp util_functions.sh Magic
+          chmod +x Magic/*
+          cd the-images
           ls
   
