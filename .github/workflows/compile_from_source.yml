@@ -70,6 +70,8 @@ jobs:
           cp android-kernel/out/slider/dist/dtbo.img images
           cp android-kernel/out/slider/dist/vendor_boot.img images
           cp android-kernel/out/slider/dist/vendor_dlkm.img images
+          cp flash-all.sh images
+          cp flash-all.bat images
 
       - name: Upload files
         uses: actions/upload-artifact@v4.3.3
