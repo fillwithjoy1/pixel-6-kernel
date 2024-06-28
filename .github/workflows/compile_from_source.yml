@@ -43,7 +43,7 @@ jobs:
           repo sync -c --no-tags
 
       - name: Update vendor ramdisk (through curl)
-        if: false
+        if: true
         run: |
           curl -O "https://dl.google.com/dl/android/aosp/raven-ap1a.240505.004-factory-9d783215.zip"
           unzip raven-ap1a.240505.004-factory-9d783215.zip
@@ -57,7 +57,7 @@ jobs:
           cp vendor_boot_out/vendor-ramdisk-by-name/ramdisk_ android-kernel/prebuilts/boot-artifacts/ramdisks/vendor_ramdisk-oriole.img
 
       - name: Update vendor ramdisk (locally)
-        if: true
+        if: false
         run: |
           cp vendor_ramdisk00 android-kernel/prebuilts/boot-artifacts/ramdisks/vendor_ramdisk-oriole.img
 
