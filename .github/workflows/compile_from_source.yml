@@ -72,10 +72,10 @@ jobs:
           cp android-kernel/out/slider/dist/vendor_dlkm.img images
           cp flash-all.sh images
           cp flash-all.bat images
-          zip images to-upload -r
+          zip images.zip to-upload -r
 
       - name: Upload files
         uses: actions/upload-artifact@v4.3.3
         with:
           name: the-images
-          path: to-upload/
+          path: images.zip
