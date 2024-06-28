@@ -8,7 +8,10 @@ on:
   workflow_dispatch:
   push:
     paths:
-      '.github/workflows/compile_from_source.yml'
+      - '.github/workflows/compile_from_source.yml'
+      - 'vendor_ramdisk00'
+      - 'flash-all.bat'
+      - 'flash-all.sh'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
