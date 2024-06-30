@@ -24,7 +24,7 @@ jobs:
 
       - name: Delete old android-kernel (if it exists)
         run: |
-          rm -rf android-kernel/ || true
+          rm -rf android-kernel/
     
       - name: Download packages needed
         run: |
