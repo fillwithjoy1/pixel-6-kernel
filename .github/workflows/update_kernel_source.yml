@@ -4,7 +4,6 @@ name: Update Kernel Source Code
 
 # Controls when the workflow will run
 on:
-  push:
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -45,5 +44,6 @@ jobs:
           repo sync -c --no-tags
 
       - name: Upload entire kernel source
-        run: echo "hello1"
+        run: |
+          git add android-kernel
         
