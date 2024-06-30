@@ -46,4 +46,7 @@ jobs:
       - name: Upload entire kernel source
         run: |
           git add android-kernel
-        
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git commit -m "Updated kernel source code" 
+          git push origin kernel-source
