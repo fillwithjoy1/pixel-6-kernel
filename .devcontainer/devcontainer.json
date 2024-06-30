@@ -5,6 +5,7 @@
     "ghcr.io/devcontainers/features/python:1": {},
     "ghcr.io/devcontainers-contrib/features/curl-apt-get:1": {},
     "ghcr.io/devcontainers/features/sshd:1": {},
-    "ghcr.io/devcontainers/features/git-lfs:1": {}
+    "ghcr.io/devcontainers/features/git-lfs:1": {},
+    "ghcr.io/jckimble/devcontainer-features/ngrok:3": {}
   }
 }
