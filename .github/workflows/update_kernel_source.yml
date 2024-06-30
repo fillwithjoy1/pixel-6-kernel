@@ -17,6 +17,13 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout repo 
+        uses: actions/checkout@v4.1.7
+
+      - name: Delete old android-kernel (if it exists)
+        run: |
+          rm -rf android-kernel/ || true
+    
       - name: Download packages needed
         run: |
           sudo apt-get update
