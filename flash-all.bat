@@ -1,4 +1,4 @@
-@ECHO ON
+@ECHO OFF
 
 PATH=%PATH%;"%SYSTEMROOT%\System32"
 fastboot flash boot boot.img
