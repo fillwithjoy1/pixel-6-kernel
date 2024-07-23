@@ -1,4 +1,19 @@
-# What is this repo?
-This repo is really... nothing right now. Hopefully later it will add some interesting patches.
-The current files listed here are being used for GitHub Actions to make building easier.
-You can fetch yourself a fresh copy of the current Pixel 6 kernel by heading over to actions and downloading the latest releases from there.
+# What is this repo about?
+A pixel-6-kernel builder for newbies who want to see how to build one. You can obviously follow the Google Developers
+Guide to build the kernel, but this repo is for those who want to see how it's done in a more simplified way.
+
+## Kali Nethunter Kernel
+_Includes Pixel 6/6a/6 Pro_
+
+
+This repo also comes with a script built-in to make kali-nethunter for you. But you need to fulfill these heavy
+requirements:
+- 150GB of free space
+- Internet good enough to download 130gb of files
+- Repo tool installed [here](https://source.android.com/setup/develop#installing-repo)
+- 16GB RAM
+- Tip: If you are using WSL, make sure you move it to a external drive if you haven't done so.
+
+Ready? Clone the repo and just run this command `"./build_kali_nethunter.sh"`.
+
+_Note: The script compiles for Android 14 QPR3_
