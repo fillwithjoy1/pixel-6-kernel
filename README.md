@@ -11,8 +11,9 @@ requirements:
 - 150GB of free space
 - Internet good enough to download 130gb of files
 - Repo tool installed [here](https://source.android.com/setup/develop#installing-repo)
-- 16GB RAM
-- Tip: If you are using WSL, make sure you move it to a external drive if you haven't done so.
+- 16GB RAM (24GB+ for Windows)
+- Tip: If you are using WSL, make sure you dedicate enough memory to it. You can do this by going to 
+C:/Users/<your user>/.wslconfig and setting `memory=16GB`
 
 Ready? Clone the repo and just run this command `"./build_kali_nethunter.sh"`.
 
