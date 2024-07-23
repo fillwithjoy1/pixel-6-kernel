@@ -36,7 +36,7 @@ jobs:
           mkdir Magisk
           cd Magisk
           curl -L https://github.com/topjohnwu/Magisk/releases/download/v27.0/Magisk-v27.0.apk > Magisk.apk
-          unzip Magisk.apk
+          unzip -o Magisk.apk
 
       - name: Fetch relevant files from Magisk
         run: |
