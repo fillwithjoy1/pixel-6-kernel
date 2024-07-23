@@ -33,7 +33,6 @@ jobs:
 
       - name: Download Magisk v27.0
         run: |
-          ls
           mkdir Magisk
           cd Magisk
           curl -L https://github.com/topjohnwu/Magisk/releases/download/v27.0/Magisk-v27.0.apk > Magisk.apk
