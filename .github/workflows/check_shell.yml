@@ -22,12 +22,9 @@ jobs:
     steps:
       - name: Checkout Project
         uses: actions/checkout@v4.1.7
-
-      - name: Now what is happening?
-        run: |
-          sh -n ./util_functions.sh
         
       - name: Check Shell Scripts
-        run: |
-          find . -name "*.sh" -exec bash -x -n {} \;
+        uses: Klintrup/simple-shell-syntax-check@v2.2.0
+        with:
+          files: find . -name "*.sh"
 
