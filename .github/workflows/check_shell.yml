@@ -25,5 +25,5 @@ jobs:
       
       - name: Check Shell Scripts
         run: |
-          find . -name "*.sh" -exec sh -x -n {} \;
+          find . -name "*.sh" -exec bash -x -n {} \;
 
