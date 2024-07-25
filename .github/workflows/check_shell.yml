@@ -25,7 +25,7 @@ jobs:
 
       - name: Now what is happening?
         run: |
-          find . -name "*.sh" -exec echo {} \;
+          sh -n ./flash-all.sh
         
       - name: Check Shell Scripts
         run: |
