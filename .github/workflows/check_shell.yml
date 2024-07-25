@@ -22,7 +22,8 @@ jobs:
     steps:
       - name: Checkout Project
         uses: actions/checkout@v4.1.7
-        
+      
       - name: Check Shell Scripts
         run: |
-          find . -name "*.sh" -exec sh -n {} \;
+          find . -name "*.sh" -exec sh -x -n {} \;
+
