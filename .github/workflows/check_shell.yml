@@ -25,6 +25,4 @@ jobs:
         
       - name: Check Shell Scripts
         uses: Klintrup/simple-shell-syntax-check@v2.2.0
-        with:
-          files: find . -name "*.sh"
 
