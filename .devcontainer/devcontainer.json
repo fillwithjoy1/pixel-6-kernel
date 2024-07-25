@@ -7,5 +7,6 @@
     "ghcr.io/devcontainers/features/sshd:1": {},
     "ghcr.io/devcontainers/features/git-lfs:1": {},
     "ghcr.io/jckimble/devcontainer-features/ngrok:3": {}
-  }
+  },
+  "postCreateCommand": "./postStart.sh"
 }
