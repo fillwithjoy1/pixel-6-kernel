@@ -25,4 +25,6 @@ jobs:
         
       - name: Check Shell Scripts
         uses: Klintrup/simple-shell-syntax-check@v2.2.0
+        with:
+          install_missing_shell: true
 
