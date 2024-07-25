@@ -25,7 +25,7 @@ jobs:
 
       - name: Now what is happening?
         run: |
-          sh -n ./flash-all.sh
+          sh -n ./util_functions.sh
         
       - name: Check Shell Scripts
         run: |
