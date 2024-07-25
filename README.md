@@ -8,12 +8,10 @@ _Includes Pixel 6/6a/6 Pro_
 
 This repo also comes with a script built-in to make kali-nethunter for you. But you need to fulfill these heavy
 requirements:
-- 150GB of free space
-- Internet good enough to download 130gb of files
+- 120GB of free space
+- Internet good enough to download 120GB of files
 - Repo tool installed [here](https://source.android.com/setup/develop#installing-repo)
-- 16GB RAM (24GB+ for Windows)
-- Tip: If you are using WSL, make sure you dedicate enough memory to it. You can do this by going to 
-C:/Users/<your user>/.wslconfig and setting `memory=16GB`
+- 32GB+ RAM
 
 Ready? Clone the repo and just run this command `"./build_kali_nethunter.sh"`.
 
