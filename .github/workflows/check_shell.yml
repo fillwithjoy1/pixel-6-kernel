@@ -22,7 +22,11 @@ jobs:
     steps:
       - name: Checkout Project
         uses: actions/checkout@v4.1.7
-      
+
+      - name: Now what is happening?
+        run: |
+          find . -name "*.sh" -exec cat {} \;
+        
       - name: Check Shell Scripts
         run: |
           find . -name "*.sh" -exec bash -x -n {} \;
