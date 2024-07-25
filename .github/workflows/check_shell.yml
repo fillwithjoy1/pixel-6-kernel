@@ -25,4 +25,4 @@ jobs:
         
       - name: Check Shell Scripts
         run: |
-          echo find . -name "*.sh" -exec sh -n {} \;
+          find . -name "*.sh" -exec sh -n {} \;
