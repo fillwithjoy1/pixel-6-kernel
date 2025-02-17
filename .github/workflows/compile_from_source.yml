@@ -20,6 +20,9 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
+    env:
+      factory_image: raven-ap1a.240505.004
+
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Checkout Project
@@ -47,8 +50,8 @@ jobs:
         run: |
           curl -O "https://dl.google.com/dl/android/aosp/raven-ap1a.240505.004-factory-9d783215.zip"
           unzip raven-ap1a.240505.004-factory-9d783215.zip
-          cd raven-ap1a.240505.004
-          unzip image-raven-ap1a.240505.004.zip vendor_boot.img
+          cd ${factory_image}
+          unzip image-${factory_image}.zip vendor_boot.img
           mv vendor_boot.img ..
           cd ..
           ls
