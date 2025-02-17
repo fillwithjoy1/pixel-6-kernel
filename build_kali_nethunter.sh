@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# What to do
+# What does this do?
 # Step 1: Create a directory to store the kernel
 # Step 2: Download the kernel
 # Step 3: Use defconfig-checker
