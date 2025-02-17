@@ -20,6 +20,9 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
+    env:
+      FACTORY_IMAGE: raven-ap4a.250205.002
+  
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Checkout Project
@@ -45,10 +48,10 @@ jobs:
       - name: Update vendor ramdisk (through curl)
         if: true
         run: |
-          curl -O "https://dl.google.com/dl/android/aosp/raven-ap1a.240505.004-factory-9d783215.zip"
-          unzip raven-ap1a.240505.004-factory-9d783215.zip
-          cd raven-ap1a.240505.004
-          unzip image-raven-ap1a.240505.004.zip vendor_boot.img
+          curl "https://dl.google.com/dl/android/aosp/raven-ap4a.250205.002-factory-d8162d11.zip" > factory.zip
+          unzip factory.zip
+          cd ${FACTORY_IMAGE}
+          unzip image-${FACTORY_IMAGE}.zip vendor_boot.img
           mv vendor_boot.img ..
           cd ..
           ls
