@@ -42,7 +42,7 @@ jobs:
         run: |
           mkdir android-kernel
           cd android-kernel
-          repo init -u https://android.googlesource.com/kernel/manifest -b android14-gs-pixel-6.1
+          repo init -u https://android.googlesource.com/kernel/manifest -b android-gs-raviole-5.10-android15-qpr1
           repo sync -c --no-tags
 
       - name: Update vendor ramdisk (through curl)
