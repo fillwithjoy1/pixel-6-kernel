@@ -80,6 +80,12 @@ jobs:
           cp flash-all.bat images
           zip images.zip images -r
 
+      - name: Storage Check
+        run: |
+          df -h
+          cd android-kernel
+          du -s -h
+
       - name: Upload files
         uses: actions/upload-artifact@v4.3.3
         with:
